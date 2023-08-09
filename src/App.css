@@ -1,38 +1,333 @@
-.App {
-  text-align: center;
-}
-
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
+* {
+    font-family: 'Cutive Mono', monospace;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
   }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
-}
-
-.App-link {
-  color: #61dafb;
-}
-
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
+  body {
+    background-color: rgb(9, 0, 24);
+    color: white;
   }
-  to {
-    transform: rotate(360deg);
+  .app___container{
+    color: white;
   }
-}
+  .navbar__container{
+    z-index: 50;
+    width: 100vw;
+    position: fixed;
+    top: 0px;
+    height: 40px;
+    background-color: rgb(32, 36, 61);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    box-shadow: 0px 0px 15px 0px rgb(0, 0, 0);
+  }
+  .link {
+    display: flex;
+    align-items: center;
+    color: rgb(213, 210, 223);
+    margin-left: 20px;
+    transition: .3s;
+  }
+  .link:hover {
+    scale: 1.02;
+    color: rgb(255, 255, 255);
+  }
+  .link:active {
+    scale: 0.98;
+    color: rgb(117, 107, 146);
+  }
+  a {
+    text-decoration: none;
+  }
+  .form input{
+    color: white;
+    font-size: 16px;
+    height: 22px;
+    background-color: rgb(36, 33, 53);
+    border: none;
+    box-shadow: inset 1px 1px 5px 1px rgb(20, 19, 32);
+    border-radius: 3px;
+    margin-right: 10px;
+  }
+  .form input::placeholder{
+    color: white;
+  }
+  .form button{
+    margin-right: 20px;
+    padding:5px;
+    border: none;
+    background-color: rgb(11, 0, 39);
+    box-shadow: inset 1px 1px 2px 1px rgb(205, 196, 211);
+    border-radius: 3px;
+    transition: 1s;
+    color: white;
+  }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  .form button:hover{
+    background-color: rgb(135, 115, 190);
+    scale: 1.05;
+    color: black;
+  }
+  .form button:active{
+    background-color: rgb(71, 46, 138);
+  }
+  .movieCard__container{
+    transition: all 1s;
+    scroll-behavior: smooth;
+    position: relative;
+    height: 400px;
+    display: flex;
+    align-items: center;
+    margin: 20px;
+    overflow-x:scroll;
+    overflow-y:hidden;
+  }
+  .movieCard__container::-webkit-scrollbar{
+    display: none;
+  }
+  
+  .scroll__icon__left{
+    z-index: 3;
+    position: absolute;
+    transform: translateY(-20px) translateX(20px);
+    opacity: 0.2;
+    transition: .3s;
+  }
+  .scroll__icon__right{
+    z-index: 3;
+    opacity: 0.2;
+    position: absolute;
+    right: 0px;
+    transform: translateY(-20px) translateX(-20px);
+    transition: .3s;
+  }
+  .scroll__icon__left:hover{
+    opacity: 0.6;
+    scale: 1.1;
+  }
+  .scroll__icon__right:hover{
+    opacity: 0.6;
+    scale: 1.1;
+  }
+  .slider__container{
+    height: 320px;
+    margin-top: 10px;
+    transition: all 1s;
+    display: flex;
+    align-items: center;
+  }
+  .title__slide{
+    position: relative;
+    margin: 20px;
+    margin-left: 50px;
+    opacity: 0.8;
+  }
+  .home__container{
+    position: relative;
+    top: 50px;
+  }
+  @media only screen and (max-width: 500px) {
+    .form input{
+      width: 100px;
+    }
+  }
+  
+  
+  .movieCard__container img{
+    width: 200px;
+    margin: 5px;
+    transition: .3s;
+    box-shadow:  1px 1px 1px 1px rgb(0, 0, 0);
+  }
+  .movieCard__container img:hover{
+    z-index: 2;
+    scale: 1.1;
+    box-shadow:  1px 1px 15px 1px rgb(0, 0, 0);
+  }
+  .link__movieCard__button{
+    z-index: 5;
+    opacity: 0.4;
+    cursor: pointer;
+    position: absolute;
+  
+    transform: translateX(-200px) translateY(0px);
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    font-size: 24px;
+    font-weight: bold;
+    background-color: rgb(12, 0, 61);
+    color: white;
+    box-shadow:  1px 1px 15px 1px rgba(252, 241, 241, 0.445);
+    transition: .2s;
+  }
+  .link__movieCard__button:hover{
+    opacity: 0.8;
+  }
+  
+  .movie__page__container{
+    margin: auto;
+    position: relative;
+    display:flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+  
+    top: 80px;
+    color:white;
+  }
+  .information__movie{
+    box-sizing: border-box;
+    border-radius: 5px;
+    padding: 20px;
+    background-color: rgb(18, 0, 43);
+    position: relative;
+    width: 380px;
+    height: 550px;
+    margin: 50px;
+  
+    transition: 1s;
+  }
+  .information__movie:hover{
+    box-shadow:  1px 1px 20px 1px rgba(255, 255, 255, 0.274);
+  }
+  .movie__page__title{
+    cursor:default;
+    box-sizing: border-box;
+    position: relative;
+    margin-bottom: 20px;
+  }
+
+
+
+  
+  .movie__page__subtitle{
+    cursor:default;
+    box-sizing: border-box;
+    display: flex;
+    align-items: center;
+    margin-left: 30px;
+  }
+  .hating{
+    cursor:default;
+    box-sizing: border-box;
+    position: relative;
+    margin-left: 10px ;
+  }
+  
+  .movie__page__informations{
+    display: flex;
+    flex-direction: column;
+    cursor:default;
+    box-sizing: border-box;
+    position: relative;
+  }
+  .movie__page__overview{
+    cursor:default;
+    box-sizing: border-box;
+    position: relative;
+    top: 20px;
+    text-align: justify;
+  }
+  .movie__page__info{
+    cursor:default;
+    top: 40px;
+    box-sizing: border-box;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    padding-left: 70px;
+    padding-right: 70px;
+    position: relative;
+    text-align: justify;
+    margin-bottom: 20px;
+  }
+  
+  .movieCard_image{
+    border-radius: 3px;
+    transition: 1s;
+  }
+  .movieCard_image:hover{
+    rotate: 2deg;
+    scale: 1.02;
+    box-shadow:  1px 1px 20px 1px rgba(255, 255, 255, 0.274);
+  
+  }
+  
+  @media only screen and (max-width: 500px) {
+    .movieCard_image{
+      width: 350px;
+    }
+   
+  }
+  .trailer__button{
+    cursor: pointer;
+    position: relative;
+    top: 60px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100px;
+    height: 30px;
+    margin: auto;
+    transition: .2s;
+    border: none;
+    background-color: rgb(253, 255, 157);
+    font-size: 15px;
+    font-weight: bold;
+    scale: 0.99;
+  }
+  .trailer__button:hover{
+    scale: 0.98;
+    background-color: rgb(231, 233, 143);
+    box-shadow: inset 0px 1px 2px 1px black;
+  }
+  .search__page__container{
+    position: relative;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+    top: 20px;
+  }
+  .search__page__container img {
+    width: 200px;
+  }
+  
+  .movieCard{
+    margin: 5px;
+    display: flex;
+  }
+  .movieCard img{
+    width: 200px;
+    height: auto;
+  }
+  
+  .search__page{
+    width: 80%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin: auto;
+    position:relative;
+    top: 60px;
+  }
+  
